@@ -8,6 +8,8 @@ canvas.height = 576
 context.fillRect(0,0, canvas.width, canvas.height)
 
 const gravity = 0.7
+
+//Character
 class Sprite {
     constructor({position, velocity, color = 'red', offset}) {
      this.position = position
@@ -33,14 +35,14 @@ class Sprite {
       context.fillRect(this.position.x, this.position.y, this.width, this.height)
 
       // Attack box
-     // if(this.isAttacking){
+      if(this.isAttacking){
       context.fillStyle = 'green',
       context.fillRect(
         this.attackBox.position.x,
          this.attackBox.position.y,
          this.attackBox.width, 
          this.attackBox.height)
-    //  }
+      }
     }
 
     update() {
@@ -178,7 +180,7 @@ function animate() { // Game Loop
 }
 
 animate()
-
+// Key Inputs
 window.addEventListener('keydown',(event) => {
     switch (event.key) {
         case 'd' :
@@ -209,7 +211,7 @@ window.addEventListener('keydown',(event) => {
         case 'i' :
         enemy.velocity.y =-20
         break
-        case'k' :
+        case 'k' :
         enemy.isAttacking = true
         break
     }
